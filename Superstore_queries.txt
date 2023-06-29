@@ -1,0 +1,65 @@
+
+--Calculating number of sales city wise
+SELECT city,count(*) AS sales_count
+FROM `project-1-374621.upload_test_dataset.superstore_1`
+GROUP BY 1
+ORDER BY 2 desc;
+
+--Type of customer giving maximum sales
+SELECT Customer_type,count(*) AS sales_count
+FROM `project-1-374621.upload_test_dataset.superstore_1`
+GROUP BY 1
+ORDER BY 2 desc;
+
+--Weekday sales analysis
+SELECT City,
+day_of_week,
+count(*) AS sales_count
+FROM `project-1-374621.upload_test_dataset.superstore_1`
+GROUP BY 1,2
+ORDER BY 3 desc;
+
+--Customer Type Vs Product Line Vs Gender
+SELECT Product_line,
+Gender,
+COUNT(*) AS No_of_Sales
+FROM `project-1-374621.upload_test_dataset.superstore_1`
+GROUP BY 1,2
+ORDER BY 2 desc;
+
+--MAX Gross Income in every Product Line
+SELECT Product_line,
+MAX(gross_income) AS MAX_gross_income
+FROM `project-1-374621.upload_test_dataset.superstore_1`
+GROUP BY 1
+ORDER BY 2 desc;
+
+-- AVG Units sold in every product line every city
+
+SELECT City,
+Product_line,
+ROUND(AVG(quantity),0) AS Avg_units_sold
+FROM `project-1-374621.upload_test_dataset.superstore_1`
+GROUP BY 1,2
+ORDER BY 3 desc;
+
+--Common Type of payment
+SELECT payment,
+COUNT(*) AS Counts
+FROM `project-1-374621.upload_test_dataset.superstore_1`
+GROUP BY 1
+ORDER BY 2 desc;
+
+--Peak hours in terms of sales
+WITH hourly AS (SELECT Invoice_id,
+total,
+time,
+LEFT(time,2) AS hours
+FROM `project-1-374621.upload_test_dataset.superstore_1`)
+
+SELECT hours,
+SUM(total) AS total_sales_amount,
+COUNT(*) AS total_no_of_sales
+FROM hourly
+GROUP BY 1
+ORDER BY 2 DESC,3 DESC;
