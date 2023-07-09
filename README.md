@@ -9,5 +9,5 @@ SQL statements like SELECT,WHERE,GROUP BY, Aggregations - SUM,AVERAGE,and MAX/MI
 **Superstore_queries.txt**  --> This Project was done on BigQuery.
 The Superstore dataset from Kaggle was imported into Bigquery and various queries were executed to obtain useful insights using SELECT,WHERE,Aggregate functions.
 
-****SQL PRACTICE QUESTIONS AND ANSWERS.docx **** --> These have some practice wuestions and my attempt in solving them using SQL queries.
+**SQL** **PRACTICE** **QUESTIONS** **AND** **ANSWERS.docx** --> These have some practice wuestions and my attempt in solving them using SQL queries.
 
